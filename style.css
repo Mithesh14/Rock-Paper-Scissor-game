@@ -1,0 +1,260 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+.animation-area {
+	background: linear-gradient(to left, #8942a8, #ba382f);
+	width: 100%;
+	height: 100vh;
+    position: absolute;
+
+}
+.box-area {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.box-area li {
+	position: absolute;
+	display: block;
+	list-style: none;
+	width: 25px;
+	height: 25px;
+	background: rgba(255, 255, 255, 0.2);
+	animation: animate 20s linear infinite;
+	bottom: -150px;
+}
+.box-area li:nth-child(1) {
+	left: 86%;
+	width: 80px;
+	height: 80px;
+	animation-delay: 0s;
+}
+.box-area li:nth-child(2) {
+	left: 12%;
+	width: 30px;
+	height: 30px;
+	animation-delay: 1.5s;
+	animation-duration: 10s;
+}
+.box-area li:nth-child(3) {
+	left: 70%;
+	width: 100px;
+	height: 100px;
+	animation-delay: 5.5s;
+}
+.box-area li:nth-child(4) {
+	left: 42%;
+	width: 150px;
+	height: 150px;
+	animation-delay: 0s;
+	animation-duration: 15s;
+}
+.box-area li:nth-child(5) {
+	left: 65%;
+	width: 40px;
+	height: 40px;
+	animation-delay: 0s;
+}
+.box-area li:nth-child(6) {
+	left: 15%;
+	width: 110px;
+	height: 110px;
+	animation-delay: 3.5s;
+}
+@keyframes animate {
+	0% {
+		transform: translateY(0) rotate(0deg);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(-800px) rotate(360deg);
+		opacity: 0;
+	}
+}
+
+#header {
+    height: 10%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 50px;
+    background:transparent;
+    display: grid;
+    place-items: center;
+    font-size: 50px;
+    color: #fff;
+
+}
+
+.text{
+	font-size: 50px;
+    font-weight: 20px;
+	font-family: "arial black";
+	position: relative;
+	color: transparent;
+    top: 30px;
+    text-align: center;
+    left: 600px;
+}
+
+.text::before,
+.text::after{
+	content: attr(data-text);
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: white;
+    text-align: center;
+	transition: 0.2s;
+}
+.text::before{
+	clip-path: polygon(0 0, 60% 0, 30% 100%, 0 100%);
+}
+.text::after{
+	clip-path: polygon(60% 0, 100% 0, 100% 100%, 30% 100%);
+}
+.text:hover::before{
+	left: -0.15em;
+	transform: rotate(-5deg);
+	top: -0.05em;
+    color: #ba382f;
+
+}
+.text:hover::after{
+	left: 0.15em;
+	transform: rotate(5deg);
+	top: 0.05em;
+    color: #7b2fd3;
+}
+
+#points {
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    top: 21%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    font-size: 30px;
+    font-family: "Segoe UI", sans-serif;
+    
+}
+
+#user,
+#comp {
+    height: 50px;
+    width: 100px;
+    box-shadow: #7b2fd3;
+    display: grid;
+    place-items: center;
+    color: #7b2fd3;
+    margin: 0 10px;
+    font: 100;
+    background: #fff;
+    
+}
+
+
+#userPoints,
+#sign,
+#compPoints {
+    font-size: 100px;
+    color: #fff;
+    margin: 0 150px;
+}
+
+#options {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    position: absolute;
+    top: calc(50% - 100px);
+}
+
+.choices {
+    height: 200px;
+    width: 200px;
+    margin: 0 80px;
+    
+}
+
+.choices i {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: #7b2fd3;
+    font-size: 80px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    border: 1px solid #ffffff7c;
+    line-height: 60px;
+    border-radius: 50%;
+    margin: 0 15px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.choices i:hover {
+    background: #fff;
+    border: 1px solid #7b2fd3;
+    color: #7b2fd3;
+  box-shadow: 0 0 15px #7b2fd3;
+  text-shadow: 0 0 15px#7b2fd3;
+}
+
+#result {
+    height: auto;
+    width: 100%;
+    position: absolute;
+    bottom: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+#result #userResult,
+#compResult {
+    height: 150px;
+    width: 100px;
+}
+
+#result #userResult i,
+#compResult i {
+    height: 100px;
+    width: 100px;
+    background: #ffff;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 40px;
+    color: #7b2fd3;
+}
+
+#result #userResult h3,
+#compResult h3 {
+    text-align: center;
+    margin: 10px;
+    font-size: 30px;
+    color: #fff;
+}
+
+#result #resultText {
+    height: 150px;
+    width: 200px;
+    font-size: 30px;
+    color: #fff;
+    display: grid;
+    place-items: center;
+}
